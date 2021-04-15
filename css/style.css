@@ -1,0 +1,58 @@
+* {
+    /* outline: 1px solid magenta; */
+}
+
+html {
+    font-size: 16px;
+}
+
+@font-face {
+    font-family: rickMorty;
+    src: url(../resources/get_schwifty.ttf);
+  }
+
+/*    N  A  V    */
+
+.nav {
+    background-color: rgb(33, 33, 33);
+    min-height: 16rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .header {
+    font-family: rickMorty;
+    font-size: 5rem;
+    color: white;
+    margin: 1rem;
+    text-shadow: 3px 3px grey;
+    cursor: pointer;
+
+}
+
+.nav .searchBox {
+    width: 20rem;
+    margin: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+
+
+/*    A L L    D I S P L A Y  */
+
+.allDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.allDisplay img {
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 3px solid rgb(31, 31, 31);
+    box-shadow: 2px 2px rgb(114, 114, 114);
+}
