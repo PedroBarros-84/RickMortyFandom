@@ -1,4 +1,5 @@
-define(['../services/landing-page-service', '../views/landing-page'], (landingPageService, landingPageView) => {
+define(['../services/landing-page-service', '../views/landing-page'], 
+                                        function(landingPageService, landingPageView) {
 
     internals = {};
     externals = {};
@@ -7,7 +8,8 @@ define(['../services/landing-page-service', '../views/landing-page'], (landingPa
 
         landingPageService.getList()
             .then(response => response.json())
-            .then(json => landingPageView.show(json, internals.fetchPage));
+            .then(json => landingPageView.show(json, internals.fetchPage, internals.fetchSearch))
+            .catch();
 		
 	}
 
@@ -19,9 +21,16 @@ define(['../services/landing-page-service', '../views/landing-page'], (landingPa
 
     }
 
-    
+    internals.fetchSearch = function(search) {
 
+        landingPageService.getSearch(search)
+            .then(response => response.json())
+            .then(json => landingPageView.loadSearchResults(json));
+
+    }
+
+    
 
 	return externals;
 
-})
+});

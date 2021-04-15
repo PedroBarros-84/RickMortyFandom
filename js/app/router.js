@@ -5,7 +5,7 @@ define(() => {
 
 	internals.routes = {
 		landingPage: { hash: '#landingPage', controller: 'landing-page-controller'},
-		movie: { hash: '#movie', controller: 'movie-controller' }
+		profilePage: { hash: '#profilePage', controller: 'profile-page-controller'}
 	}
 	
   	// keep current state

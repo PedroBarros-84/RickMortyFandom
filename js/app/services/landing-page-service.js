@@ -1,4 +1,4 @@
-define( () => {
+define( function() {
 
     externals = {};
 
@@ -8,7 +8,11 @@ define( () => {
                     
     }
 
+    externals.getSearch = function(search) {
 
+        return fetch('https://rickandmortyapi.com/api/character/?name=' + search);
+
+    }
 
     return externals;
 });

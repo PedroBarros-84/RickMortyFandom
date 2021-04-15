@@ -9,7 +9,7 @@ html {
 @font-face {
     font-family: rickMorty;
     src: url(../resources/get_schwifty.ttf);
-  }
+}
 
 /*    N  A  V    */
 
@@ -17,9 +17,16 @@ html {
     background-color: rgb(33, 33, 33);
     min-height: 16rem;
     display: flex;
-    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .tittleAndSearch {
+    flex-grow: 3;
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .nav .header {
@@ -29,7 +36,11 @@ html {
     margin: 1rem;
     text-shadow: 3px 3px grey;
     cursor: pointer;
+    transition: letter-spacing 1s;
+}
 
+.nav .header:hover {
+    letter-spacing: 0.3rem;
 }
 
 .nav .searchBox {
@@ -39,20 +50,87 @@ html {
     text-align: center;
 }
 
+.nav img {
+    width: 250px;
+}
 
 
-/*    A L L    D I S P L A Y  */
 
-.allDisplay {
+/*    C H A R A C T E R    D I S P L A Y  */
+
+.charactersDisplay {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.allDisplay img {
+.charactersDisplay img {
     margin: 1rem;
     border-radius: 1rem;
-    border: 3px solid rgb(31, 31, 31);
+    border: 3px solid rgb(97, 97, 97);
     box-shadow: 2px 2px rgb(114, 114, 114);
+}
+
+.charactersDisplay img:hover {
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 6px 6px 6px 6px rgb(114, 114, 114); 
+}
+
+
+
+/*   P R O F I L E   N A V   */
+
+.nav .tittleAndButtons {
+    flex-grow: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tittleAndButtons .btn {
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.profileDisplay {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileDisplay .profileImageDiv {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileDisplay img {
+    margin: 1rem;
+    width: 80%;
+    border-radius: 1rem;
+    border: 3px solid rgb(97, 97, 97);
+    box-shadow: 2px 2px rgb(114, 114, 114);
+}
+
+.profileDisplay .characterDescriptionDiv {
+    min-height: 500px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.characterDescriptionDiv h1 {
+    text-shadow: 2px 2px 2px grey;
+    font-size: 5rem;
+}
+
+.characterDescriptionDiv h5 {
+    text-shadow: 2px 2px 2px grey;
+    font-size: 3rem;
 }
