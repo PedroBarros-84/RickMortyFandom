@@ -79,9 +79,9 @@ html {
 }
 
 .charactersDisplay img:active {
-    width: 247px;
+    width: 248px;
     box-shadow: 1px 1px 1px 1px rgb(114, 114, 114);
-    transition: 0.2s;
+    transition: 0.15s;
 }
 
 
@@ -99,7 +99,18 @@ html {
 
 .tittleAndButtons .btn {
     margin: 10px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: rickMorty;
+    letter-spacing: 0.3rem;
+    width: 150px;
+    height: 3rem;
+    box-shadow: 2px 2px black;
+}
+
+.tittleAndButtons .btn:active {
+    width: 148px;
+    height: 2.9rem;
+    box-shadow: 1px 1px black;
+    transition: 0.1s;
 }
 
 
@@ -145,4 +156,16 @@ html {
 .characterDescriptionDiv h5 {
     text-shadow: 2px 2px 2px grey;
     font-size: 3rem;
+}
+
+
+@media only screen and (max-width: 1050px) {
+
+    .nav .navPicDiv {
+        display: none;
+    }
+
+    .nav .navPic {
+        display: none;
+    }
 }

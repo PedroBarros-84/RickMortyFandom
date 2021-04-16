@@ -22,11 +22,11 @@ define( function() {
 									.attr('id', 'searchBox');
 		titleAndSearch.append(searchBox);
 
-		var rick = $('<img>').attr('src', '/RickMortyFandom/resources/rick.png').attr('class', 'rick');
-		$('#nav').append($('<div>').append(rick));
+		var rick = $('<img>').attr('src', '/RickMortyFandom/resources/rick.png').attr('class', 'navPic');
+		$('#nav').append($('<div>').attr('class', 'navPicDiv')).append(rick);
 		$('#nav').append(titleAndSearch);
-		var morty = $('<img>').attr('src', '/RickMortyFandom/resources/morty.png').attr('class', 'morty');
-		$('#nav').append($('<div>').append(morty));
+		var morty = $('<img>').attr('src', '/RickMortyFandom/resources/morty.png').attr('class', 'navPic');
+		$('#nav').append($('<div>').attr('class', 'navPicDiv')).append(morty);
 
 		searchBox.click(event => {
 			event.target.value = '';
