@@ -28,7 +28,7 @@ define( function() {
 			internals.fetchOther('https://rickandmortyapi.com/api/character/' + internals.nextCharacterId);
 		});
 
-		var rick = $('<img>').attr('src', '/resources/rick.png').attr('class', 'rick');
+		var rick = $('<img>').attr('src', '/RickMortyFandom/resources/rick.png').attr('class', 'rick');
 		$('#nav').append($('<div>').append(rick));
 		$('#nav').append(titleAndButtons);
 		var morty = $('<img>').attr('src', '/RickMortyFandom/resources/morty.png').attr('class', 'morty');
