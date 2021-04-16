@@ -10,7 +10,7 @@ define( function() {
 		var titleAndButtons = $('<div>').attr('class', 'tittleAndButtons');
 
 		var title = $('<p>').text('RICK and MORTY').attr('class', 'header').attr('title', "Initial Page");
-		title.click(event => {
+		title.click( function() {
 			window.location.hash = '';
 		});
 		titleAndButtons.append(title);
@@ -45,11 +45,9 @@ define( function() {
 		descriptionDiv.append($('<h5>').text('Gender: ' + character.gender));
 		descriptionDiv.append($('<h5>').text('Species: ' + character.species));
 		descriptionDiv.append($('<h5>').text('Status: ' + character.status));
-		descriptionDiv.append($('<h5>').text('Location: ' + character.location));
-
+		descriptionDiv.append($('<h5>').text('Location: ' + character.location.name));
 
 		$('#profileDisplay').append(imageDiv).append(descriptionDiv);
-
 	}
 
 	externals.loadOtherProfile = function(character) {
@@ -59,36 +57,23 @@ define( function() {
 		internals.previousCharacterId = character.id - 1 <= 0 ? sessionStorage.totalNumCharacters : character.id - 1;
         internals.nextCharacterId = character.id + 1 > sessionStorage.totalNumCharacters ? 1 : character.id + 1;
 
-		console.log('previousCharacterId', internals.previousCharacterId);
-		console.log('nextCharacterId', internals.nextCharacterId);
-
 		internals.populatePage(character);
-
 	}
-
 
 	externals.show = function(character, fetchOtherFunc) {
 
 		$('#profileDisplay').empty();
 		$('#charactersDisplay').empty();
-        internals.renderNav();
 
-		console.log('character object', character);
-        console.log('sessionStorage', sessionStorage);
+        internals.renderNav();
 
 		internals.fetchOther = fetchOtherFunc;
 				
         internals.previousCharacterId = character.id - 1 <= 0 ? sessionStorage.totalNumCharacters : character.id - 1;
         internals.nextCharacterId = character.id + 1 > sessionStorage.totalNumCharacters ? 1 : character.id + 1;
 		
-		console.log('previousCharacterId', internals.previousCharacterId);
-		console.log('nextCharacterId', internals.nextCharacterId);
-
 		internals.populatePage(character);
-		console.log('internals', internals);
 	}
 
-
 	return externals;
-
 });

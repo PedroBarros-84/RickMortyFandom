@@ -3,6 +3,8 @@ define( function() {
 	let internals = {};
 	let externals = {};
 
+	internals.scrollHasBeenInit = false;
+
 	internals.renderNav = function() {
 
 		$("#nav").empty();
@@ -10,15 +12,14 @@ define( function() {
 		var titleAndSearch = $('<div>').attr('class', 'tittleAndSearch');
 
 		var title = $('<p>').text('RICK and MORTY').attr('class', 'header').attr('title', "Initial Page");
-		title.click(event => {
-			window.location.hash = '';
-		});
+		title.click( function() { window.location.hash = ''; });
 		titleAndSearch.append(title);
 
 		var searchBox = $('<input>').attr('type', 'text')
 									.attr('id', 'searchBox')
 									.attr('class', 'searchBox form-control')
-									.attr('value', 'search for a character');
+									.attr('value', 'search for a character')
+									.attr('id', 'searchBox');
 		titleAndSearch.append(searchBox);
 
 		var rick = $('<img>').attr('src', '../resources/rick.png').attr('class', 'rick');
@@ -28,11 +29,10 @@ define( function() {
 		$('#nav').append($('<div>').append(morty));
 
 		searchBox.click(event => {
-			console.log(event);
 			event.target.value = '';
 		});
 
-		searchBox.on('change', event => {
+		searchBox.on('change', function() {
 			var searchWord = $('#searchBox').val().trim();
 			internals.fetchSearch(searchWord);
 		});
@@ -42,8 +42,6 @@ define( function() {
 		
 		arrayOfCharacters.forEach(element => {
 				
-			console.log(element)
-
 			var image = $('<img>').attr('src', element.image)
 									.attr('title', element.name)
 									.attr('data', element.id);
@@ -51,68 +49,58 @@ define( function() {
 			image.click( function(event) {
 
 				internals.loadCharacterProfile(event);
-
 			})
 
 			$('#charactersDisplay').append(image);
-
 		});
 	}
 
-	internals.initScrollBottomDetect = function() {
+	internals.initScrollBottomDetect = function(fetchNextPageFunc) {
 		
-		$(window).scroll( function(event) {
+		$(window).scroll( function() {
 
 			if($(window).scrollTop() + $(window).height() == $(document).height() 
 					&& internals.nextPageUrl != null && window.location.hash === '#landingPage') {
 				internals.fetchNextPage(internals.nextPageUrl);
 			}
-	
 		});
 	}
 
-	externals.show = function(allCharacters, fetchNextPageFunc) {
+	externals.show = function(allCharacters, fetchNextPageFunc, fetchSearchFunc) {
 
 		$('#profileDisplay').empty();
 		$('#charactersDisplay').empty();
-
-		console.log('allCharacters object', allCharacters);
 
 		// create info properties
 		sessionStorage.totalNumCharacters = allCharacters.info.count;
 		internals.totalPages = allCharacters.info.pages;
 		internals.nextPageUrl = allCharacters.info.next;
 		internals.previousPageUrl = allCharacters.info.prev;
-
-		// view gets controllers functions to retrive next character block & search
-		internals.fetchNextPage = fetchNextPageFunc;
+		internals.charactersInitialList = allCharacters;
 
 		internals.renderNav();
 
+		internals.fetchSearch = fetchSearchFunc;
+		internals.fetchNextPage = fetchNextPageFunc;
+
+		if (!internals.scrollHasBeenInit) {
+			internals.initScrollBottomDetect();
+			internals.scrollHasBeenInit = true;
+		}
+
 		// Populate page with array elements
 		internals.populatePage(allCharacters.results);
-
-		internals.initScrollBottomDetect();
-
-		console.log("landing show function has run");
-		console.log('internals', internals);
-
 	}
 
 	externals.appendMoreCharacters = function(moreCharacters) {
-
-		console.log(moreCharacters);
 
 		internals.nextPageUrl = moreCharacters.info.next;
 		internals.previousPageUrl = moreCharacters.info.prev;
 
 		internals.populatePage(moreCharacters.results);
-
 	}
 
 	externals.loadSearchResults = function(searchResults) {
-
-		console.log(searchResults);
 
 		if (searchResults.error) {
 			return alert('No character matching that name');
@@ -126,7 +114,6 @@ define( function() {
 		internals.previousPageUrl = searchResults.info.prev;
 
 		internals.populatePage(searchResults.results);
-
 	}
 
 	internals.loadCharacterProfile = function(event) {
@@ -134,7 +121,6 @@ define( function() {
 		sessionStorage.characterId = event.target.attributes.data.value;
 
 		window.location.hash = 'profilePage';
-		
 	}
 
 	return externals;

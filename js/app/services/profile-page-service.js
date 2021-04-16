@@ -1,6 +1,6 @@
 define( function() {
 
-    externals = {};
+    let externals = {};
 
     externals.getCharacter = function() {
 
