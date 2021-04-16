@@ -41,11 +41,11 @@ define( function() {
 		imageDiv.append($('<img>').attr('src', character.image));
 
 		var descriptionDiv = $('<div>').attr('class', 'characterDescriptionDiv');
-		descriptionDiv.append($('<h1>').text(character.name));
-		descriptionDiv.append($('<h5>').text('Gender: ' + character.gender));
-		descriptionDiv.append($('<h5>').text('Species: ' + character.species));
-		descriptionDiv.append($('<h5>').text('Status: ' + character.status));
-		descriptionDiv.append($('<h5>').text('Location: ' + character.location.name));
+		descriptionDiv.append($('<p>').attr('class', 'characterTitle').text(character.name));
+		descriptionDiv.append($('<p>').attr('class', 'characterDescription').text('Gender: ' + character.gender));
+		descriptionDiv.append($('<p>').attr('class', 'characterDescription').text('Species: ' + character.species));
+		descriptionDiv.append($('<p>').attr('class', 'characterDescription').text('Status: ' + character.status));
+		descriptionDiv.append($('<p>').attr('class', 'characterDescription').text('Location: ' + character.location.name));
 
 		$('#profileDisplay').append(imageDiv).append(descriptionDiv);
 	}

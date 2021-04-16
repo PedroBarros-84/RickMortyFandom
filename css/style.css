@@ -103,6 +103,7 @@ html {
     letter-spacing: 0.3rem;
     width: 150px;
     height: 3rem;
+    border: 2px solid rgb(213, 213, 213);
     box-shadow: 2px 2px black;
 }
 
@@ -148,12 +149,12 @@ html {
     text-align: center;
 }
 
-.characterDescriptionDiv h1 {
+.characterDescriptionDiv .characterTitle {
     text-shadow: 2px 2px 2px grey;
     font-size: 5rem;
 }
 
-.characterDescriptionDiv h5 {
+.characterDescriptionDiv .characterDescription {
     text-shadow: 2px 2px 2px grey;
     font-size: 3rem;
 }
@@ -167,5 +168,13 @@ html {
 
     .nav .navPic {
         display: none;
+    }
+
+    .characterDescriptionDiv .characterTitle {
+        font-size: 3rem;
+    }
+
+    .characterDescriptionDiv .characterDescription {
+        font-size: 1rem;
     }
 }
