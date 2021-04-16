@@ -67,6 +67,7 @@ html {
 
 .charactersDisplay img {
     margin: 1rem;
+    width: 250px;
     border-radius: 1rem;
     border: 3px solid rgb(97, 97, 97);
     box-shadow: 2px 2px rgb(114, 114, 114);
@@ -76,6 +77,13 @@ html {
     border: 3px solid rgb(0, 0, 0);
     box-shadow: 6px 6px 6px 6px rgb(114, 114, 114); 
 }
+
+.charactersDisplay img:active {
+    width: 247px;
+    box-shadow: 1px 1px 1px 1px rgb(114, 114, 114);
+    transition: 0.2s;
+}
+
 
 
 
