@@ -28,10 +28,10 @@ define( function() {
 			internals.fetchOther('https://rickandmortyapi.com/api/character/' + internals.nextCharacterId);
 		});
 
-		var rick = $('<img>').attr('src', 'https://pedrobarros-84.github.io/RickMortyFandom/resources/rick.png').attr('class', 'rick');
+		var rick = $('<img>').attr('src', '/resources/rick.png').attr('class', 'rick');
 		$('#nav').append($('<div>').append(rick));
 		$('#nav').append(titleAndButtons);
-		var morty = $('<img>').attr('src', 'https://pedrobarros-84.github.io/RickMortyFandom/resources/morty.png').attr('class', 'morty');
+		var morty = $('<img>').attr('src', '/RickMortyFandom/resources/morty.png').attr('class', 'morty');
 		$('#nav').append($('<div>').append(morty));
 	}
 
