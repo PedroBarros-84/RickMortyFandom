@@ -47,7 +47,6 @@ define( function() {
 									.attr('data', element.id);
 
 			image.click( function(event) {
-
 				internals.loadCharacterProfile(event);
 			})
 
